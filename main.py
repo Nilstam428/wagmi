@@ -4,6 +4,8 @@ from datetime import datetime
 from typing import Optional
 from json.decoder import JSONDecodeError
 import json
+import uvicorn
+
 
 app = FastAPI()
 
@@ -37,3 +39,6 @@ async def wagmi(request: Request):
         "b": b,
         "status": "success"
     }
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
